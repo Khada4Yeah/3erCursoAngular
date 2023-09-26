@@ -2,10 +2,12 @@
 
 @import url(./styles/reset.scss);
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import "~swiper/swiper-bundle.css";
 
 * {
   font-family: "Quicksand", sans-serif;
 }
+
 .products--grid {
   app-img {
     img {
