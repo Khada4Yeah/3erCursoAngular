@@ -12,7 +12,7 @@ import {
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl = 'https://young-sands-07814.herokuapdp.com/api/products';
+  private apiUrl = '/api/products';
 
   constructor(private http: HttpClient) {}
 
