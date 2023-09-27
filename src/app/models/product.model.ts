@@ -1,5 +1,5 @@
 export interface Category {
-  id: string;
+  id: number;
   name: string;
 }
 
@@ -10,4 +10,8 @@ export interface Product {
   images: string[];
   description: string;
   category: Category;
+}
+
+export interface CreateProductDTO extends Omit<Product, 'id' | 'category'> {
+  categoryId: number;
 }
