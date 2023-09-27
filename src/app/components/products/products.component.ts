@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getProductsByPage(10, 0).subscribe((data) => {
+    this.productsService.getAllProducts(10, 0).subscribe((data) => {
       this.products = data;
       this.offset += this.limit;
       console.log(data);
