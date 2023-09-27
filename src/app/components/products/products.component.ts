@@ -70,4 +70,16 @@ export class ProductsComponent implements OnInit {
       this.products.unshift(data);
     });
   }
+
+  updateProduct(): void {
+    const changes = {
+      title: 'Nuevo titulo',
+    };
+    const id = this.productChosen.id;
+    this.productsService.update(id, changes).subscribe((data) => {
+      console.log(data);
+      const productIndex = this.products.findIndex((item) => item.id === id);
+      this.products[productIndex] = data;
+    });
+  }
 }
