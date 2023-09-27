@@ -5,7 +5,7 @@ import {
   HttpParams,
   HttpStatusCode,
 } from '@angular/common/http';
-import { catchError, retry, throwError } from 'rxjs';
+import { catchError, map, retry, throwError } from 'rxjs';
 
 import {
   CreateProductDTO,
@@ -29,7 +29,12 @@ export class ProductsService {
       params = params.set('offset', limit);
     }
     return this.http.get<Product[]>(this.apiUrl, { params }).pipe(
-      retry(3) // retry a failed request up to 3 times
+      retry(3),
+      map((products) =>
+        products.map((item) => {
+          return { ...item, taxes: item.price * 0.12 };
+        })
+      )
     );
   }
 
