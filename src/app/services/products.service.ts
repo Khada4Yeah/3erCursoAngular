@@ -12,7 +12,7 @@ import {
   Product,
   UpdateProductDTO,
 } from '../models/product.model';
-import { environment } from '../environments/environments.prod';
+import { environment } from '../environments/environments';
 
 @Injectable({
   providedIn: 'root',
