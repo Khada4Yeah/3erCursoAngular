@@ -60,7 +60,7 @@ export class ProductsComponent implements OnInit {
     this.toggleProductDetail();
     this.productsService.getProduct(id).subscribe(
       (data) => {
-        this.toggleProductDetail();
+        //this.toggleProductDetail();
         this.productChosen = data;
         this.statusDetail = 'success';
       },
