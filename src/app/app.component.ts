@@ -11,6 +11,7 @@ export class AppComponent {
   imgParent = '';
   showImg = true;
   token = '';
+  imgRta = '';
 
   constructor(
     private userService: UsersService,
@@ -45,5 +46,15 @@ export class AppComponent {
         'application/pdf'
       )
       .subscribe();
+  }
+
+  onUpload(event: Event) {
+    const element = event.target as HTMLInputElement;
+    const file = element.files?.item(0);
+    if (file) {
+      this.fileService.uploadFile(file).subscribe((rta) => {
+        this.imgRta = rta.location;
+      });
+    }
   }
 }
